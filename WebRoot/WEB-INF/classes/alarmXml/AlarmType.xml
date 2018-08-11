@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alarmTypeMap>
+	<alarmType>
+		<id>1</id>
+		<name>communications_alarm</name>
+	</alarmType>
+	<alarmType>
+		<id>2</id>
+		<name>processing_error_alarm</name>
+	</alarmType>
+	<alarmType>
+		<id>3</id>
+		<name>environmental_alarm</name>
+	</alarmType>
+	<alarmType>
+		<id>4</id>
+		<name>quality_of_service_alarm</name>
+	</alarmType>
+	<alarmType>
+		<id>5</id>
+		<name>equipment_alarm</name>
+	</alarmType>
+	<alarmType>
+		<id>6</id>
+		<name>integrity_violation</name>
+	</alarmType>
+	<alarmType>
+		<id>7</id>
+		<name>security_violation</name>
+	</alarmType>
+	<alarmType>
+		<id>8</id>
+		<name>time_domain_violation</name>
+	</alarmType>
+	<alarmType>
+		<id>9</id>
+		<name>operational_violation</name>
+	</alarmType>
+	<alarmType>
+		<id>10</id>
+		<name>physical_violation</name>
+	</alarmType>
+</alarmTypeMap>

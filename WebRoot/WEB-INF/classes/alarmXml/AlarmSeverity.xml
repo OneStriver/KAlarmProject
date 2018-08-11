@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alarmSeverityMap>
+	<alarmSeverity>
+		<id>100</id>
+		<name>indeterminate</name>
+	</alarmSeverity>
+	<alarmSeverity>
+		<id>200</id>
+		<name>warning</name>
+	</alarmSeverity>
+	<alarmSeverity>
+		<id>300</id>
+		<name>minor</name>
+	</alarmSeverity>
+	<alarmSeverity>
+		<id>400</id>
+		<name>major</name>
+	</alarmSeverity>
+	<alarmSeverity>
+		<id>500</id>
+		<name>critical</name>
+	</alarmSeverity>
+	
+</alarmSeverityMap>

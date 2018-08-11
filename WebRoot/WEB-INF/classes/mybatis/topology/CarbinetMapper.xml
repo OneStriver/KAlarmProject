@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CarbinetMapper">
+
+	<!--表名 -->
+	<sql id="tableName">
+		tb_carbinet
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		id,
+ 		pId,
+ 		level,
+ 		name,
+ 		pictureId,
+ 		pictureName,
+ 		pictureLeft,
+ 		pictureTop
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{id},
+ 		#{pId},
+ 		#{level},
+ 		#{name},
+ 		#{pictureId},
+ 		#{pictureName},
+ 		#{pictureLeft},
+ 		#{pictureTop}
+	</sql>
+	
+	<!-- 获取树形菜单的数据  -->
+	<select id="getCarbinetMenuList" parameterType="String" resultType="com.fh.entity.topology.carbinet.CarbinetMenu">
+		select  
+			<include refid="Field"></include>
+		 from 
+			<include refid="tableName"></include>
+	</select>
+	
+	<!-- 获取树形菜单的数据  -->
+	<select id="getCarbinetTreeNodeById" parameterType="String" resultType="com.fh.entity.topology.carbinet.CarbinetMenu">
+		select  
+			<include refid="Field"></include>
+		from 
+			<include refid="tableName"></include>
+		where id = #{treeNodeId}
+	</select>
+	
+	<!-- 获取树形菜单的数据  -->
+	<select id="getCarbinetTreeNodeList" parameterType="String" resultType="com.fh.entity.topology.carbinet.CarbinetMenu">
+		select  
+			<include refid="Field"></include>
+		from 
+			<include refid="tableName"></include>
+		where pId = #{treeNodeId}
+	</select>
+	
+	<!--新增树形菜单节点 -->
+	<insert id="saveCarbinetTreeNode" parameterType="com.fh.entity.topology.carbinet.CarbinetMenu">
+		insert into 
+			<include refid="tableName"></include> 
+		(
+			<include refid="Field"></include>
+		) values (
+			<include refid="FieldValue"></include>
+		)
+	</insert>
+	
+	<!--修改树形菜单节点 -->
+	<update id="updateCarbinetTreeNode" parameterType="com.fh.entity.topology.carbinet.CarbinetMenu">
+		update 
+		<include refid="tableName"></include> 
+		set 
+			name=#{name}
+		where 
+			id=#{id}
+	</update>
+	
+	<!--删除树形菜单节点-->
+	<delete id="deleteCarbinetTreeNode" parameterType="com.fh.entity.topology.carbinet.CarbinetMenu">
+		delete from 
+		<include refid="tableName"></include> 
+		where id=#{id}
+	</delete>
+	
+	<!-- 更新图片的位置坐标信息 -->
+	<update id="updateDevicePictureInfo" parameterType="com.fh.entity.topology.carbinet.CarbinetMenu">
+		update 
+		<include refid="tableName"></include> 
+		set 
+			pictureName=#{pictureName},
+			pictureLeft=#{pictureLeft},
+			pictureTop=#{pictureTop}
+		where 
+			pictureId=#{pictureId}
+	</update>
+	
+	<!-- 查询所有设备的位置信息 -->
+	<select id="getAllDevicePictureLocation" parameterType="String" resultType="com.fh.entity.topology.carbinet.CarbinetMenu">
+		select  
+			<include refid="Field"></include>
+		from 
+			<include refid="tableName"></include>
+		where id != #{parentId}
+	</select>
+	
+</mapper>
